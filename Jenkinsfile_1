@@ -25,8 +25,8 @@ pipeline {
     } 
     stage('S3-Upload'){
     steps {
-        s3Upload acl: 'BucketOwnerFullControl', bucket: 'j1yful-test', cacheControl: '', excludePathPattern: '', file: '*', includePathPattern: '', metadatas: [''], path: '.', redirectLocation: '', sseAlgorithm: '', text: '', workingDir: '.'
-      }
+        s3Upload(file:'.', bucket:'j1yful-test', path:'.')
+        }
     }
   }
 }
