@@ -1,4 +1,3 @@
-//Jenkins file only to tutorial example
 pipeline {
   agent any
     
@@ -23,5 +22,12 @@ pipeline {
          sh 'npm test'
       }
     } 
+   stage('aws'){
+       steps{
+    withAWS(credentials: 's3-jay-upload', region: 'us-east-1') {
+    s3Upload bucket: 'j1yful-test', excludePathPattern: '.git', includePathPattern: '**/*', path: '${JOB_NAME}-${BUILD_NUMBER}', workingDir: '.'
+          }
+       }
+    }
   }
 }
