@@ -23,10 +23,5 @@ pipeline {
          sh 'npm test'
       }
     } 
-    stage('S3-Upload'){
-    steps {
-        s3Upload(file:'*', bucket:'j1yful-test', path:'.')
-        }
-    }
   }
 }
