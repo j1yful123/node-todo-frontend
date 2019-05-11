@@ -26,7 +26,7 @@ pipeline {
        steps{
     withAWS(credentials: 's3-jay-upload', region: 'us-east-1') {
     s3Upload bucket: 'j1yful-test', excludePathPattern: '.git', includePathPattern: '**/*', path: "${JOB_NAME}/${BUILD_ID}", workingDir: '.'
-//    deployLambda([alias: '', artifactLocation: 's3://j1yful/j1yful-test/${JOB_NAME}/${BUILD_ID}/', awsAccessKeyId: 'AKIAROFBYYUE7UMIC534', awsRegion: 'us-east-1', awsSecretKey: '{AQAAABAAAAAw0FIgG9Hd6rPs9jih8onMaYR96kR+FGrBWv0Iva0WiJLk53tFqbJAi3mkXaJHz4VW/A7iWVZ3U3snEdfk1lQPGg==}', deadLetterQueueArn: '', description: '', environmentConfiguration: [kmsArn: ''], functionName: 'node-lambda-testing', handler: 'node-lambda-testing', memorySize: '1024', role: 'arn:aws:iam::099123512585:role/ec2-lambda', runtime: 'nodejs', securityGroups: '', subnets: '', timeout: '30', updateMode: 'full'])
+//    deployLambda([artifactLocation: "s3://j1yful/j1yful-test/${JOB_NAME}/${BUILD_ID}/", awsAccessKeyId: 'AKIAROFBYYUE7UMIC534', awsRegion: 'us-east-1', awsSecretKey: '{AQAAABAAAAAw0FIgG9Hd6rPs9jih8onMaYR96kR+FGrBWv0Iva0WiJLk53tFqbJAi3mkXaJHz4VW/A7iWVZ3U3snEdfk1lQPGg==}', environmentConfiguration: [kmsArn: ''], functionName: 'node-lambda-testing', handler: 'node-lambda-testing', memorySize: '1024', role: 'arn:aws:iam::099123512585:role/ec2-lambda', runtime: 'nodejs', timeout: '30', updateMode: 'full'])
           }
        }
     }
