@@ -2,7 +2,7 @@
 pipeline {
   agent any
     
-  tools {nodejs "node11"}
+  tools {nodejs "node11"}  // This is the Installation name of nodejs on your jenkins instance
     
   stages {
         
