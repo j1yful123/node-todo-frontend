@@ -25,7 +25,7 @@ pipeline {
     } 
     stage('S3-Upload'){
     steps {
-        s3Upload(file:'.', bucket:'j1yful-test', path:'.')
+        s3Upload(file:'*', bucket:'j1yful-test', path:'.')
         }
     }
   }
